@@ -3,7 +3,6 @@ package com.example.curso.rest;
 import java.net.URI;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,8 +20,11 @@ import com.example.curso.service.PhoneService;
 @RequestMapping("/phones")
 public class PhoneRest {
 
-	@Autowired
-	private PhoneService phoneService;
+	private final PhoneService phoneService;
+
+	public PhoneRest(PhoneService phoneService) {
+		this.phoneService = phoneService;
+	}
 
 	@GetMapping
 	public ResponseEntity<List<Phone>> getAllPersonas() {

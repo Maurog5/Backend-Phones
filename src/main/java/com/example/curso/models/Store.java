@@ -3,22 +3,17 @@ package com.example.curso.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 @Data
 @Entity
-@Table(name="store")
+@Table(name = "store")
 public class Store {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
-    private long id;
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Product> products;
-
-
-
-
+    private String model;
+    private String type;
+    private String data;
+    private String country;
+    private String state;
 }
